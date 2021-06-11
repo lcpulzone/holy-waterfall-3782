@@ -16,34 +16,36 @@ RSpec.describe 'flight index page' do
     visit "/flights"
   end
 
-  it 'can show number of each flight, name of airline next to each flight number, and all passengers in flight' do
-    within("#flight-numbers-#{@orange.id}") do
-      expect(page).to have_content(@orange.number)
-      expect(page).to have_content(@hawk.name)
+  describe 'flight information' do
+    it 'can show number of each flight, name of airline next to each flight number, and all passengers in flight' do
+      within("#flight-numbers-#{@orange.id}") do
+        expect(page).to have_content(@orange.number)
+        expect(page).to have_content(@hawk.name)
 
-      expect(page).to_not have_content(@redmomd.number)
-      expect(page).to_not have_content(@dalia.name)
-      expect(page).to_not have_content(@nick.name)
-    end
+        expect(page).to_not have_content(@redmomd.number)
+        expect(page).to_not have_content(@dalia.name)
+        expect(page).to_not have_content(@nick.name)
+      end
 
-    within("#flight-numbers-#{@redmomd.id}") do
-      expect(page).to have_content(@dalia.name)
-      expect(page).to have_content(@redmomd.number)
+      within("#flight-numbers-#{@redmomd.id}") do
+        expect(page).to have_content(@dalia.name)
+        expect(page).to have_content(@redmomd.number)
 
-      expect(page).to_not have_content(@orange.number)
-      expect(page).to_not have_content(@hawk.name)
-      expect(page).to_not have_content(@annie.name)
-    end
+        expect(page).to_not have_content(@orange.number)
+        expect(page).to_not have_content(@hawk.name)
+        expect(page).to_not have_content(@annie.name)
+      end
 
-    within("#flight-numbers-#{@bend.id}") do
-      expect(page).to have_content(@bend.number)
-      expect(page).to have_content(@dalia.name)
-      expect(page).to have_content(@nick.name)
-      expect(page).to have_content(@annie.name)
-      expect(page).to have_content(@matt.name)
+      within("#flight-numbers-#{@bend.id}") do
+        expect(page).to have_content(@bend.number)
+        expect(page).to have_content(@dalia.name)
+        expect(page).to have_content(@nick.name)
+        expect(page).to have_content(@annie.name)
+        expect(page).to have_content(@matt.name)
 
-      expect(page).to_not have_content(@redmomd.number)
-      expect(page).to_not have_content(@hawk.name)
+        expect(page).to_not have_content(@redmomd.number)
+        expect(page).to_not have_content(@hawk.name)
+      end
     end
   end
 end
