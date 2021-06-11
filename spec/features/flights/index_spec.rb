@@ -20,6 +20,7 @@ RSpec.describe 'flight index page' do
     within("#flight-numbers-#{@orange.id}") do
       expect(page).to have_content(@orange.number)
       expect(page).to have_content(@hawk.name)
+      
       expect(page).to_not have_content(@redmomd.number)
       expect(page).to_not have_content(@dalia.name)
     end
@@ -27,6 +28,7 @@ RSpec.describe 'flight index page' do
     within("#flight-numbers-#{@redmomd.id}") do
       expect(page).to have_content(@dalia.name)
       expect(page).to have_content(@redmomd.number)
+
       expect(page).to_not have_content(@orange.number)
       expect(page).to_not have_content(@hawk.name)
     end
@@ -34,6 +36,10 @@ RSpec.describe 'flight index page' do
     within("#flight-numbers-#{@bend.id}") do
       expect(page).to have_content(@bend.number)
       expect(page).to have_content(@dalia.name)
+      expect(page).to have_content(@nick.name)
+      expect(page).to have_content(@annie.name)
+      expect(page).to have_content(@matt.name)
+
       expect(page).to_not have_content(@redmomd.number)
       expect(page).to_not have_content(@hawk.name)
     end
