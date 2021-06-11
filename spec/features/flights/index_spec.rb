@@ -16,13 +16,14 @@ RSpec.describe 'flight index page' do
     visit "/flights"
   end
 
-  it 'can show name of airline next to each flight number' do
+  it 'can show number of each flight, name of airline next to each flight number, and all passengers in flight' do
     within("#flight-numbers-#{@orange.id}") do
       expect(page).to have_content(@orange.number)
       expect(page).to have_content(@hawk.name)
-      
+
       expect(page).to_not have_content(@redmomd.number)
       expect(page).to_not have_content(@dalia.name)
+      expect(page).to_not have_content(@nick.name)
     end
 
     within("#flight-numbers-#{@redmomd.id}") do
@@ -31,6 +32,7 @@ RSpec.describe 'flight index page' do
 
       expect(page).to_not have_content(@orange.number)
       expect(page).to_not have_content(@hawk.name)
+      expect(page).to_not have_content(@annie.name)
     end
 
     within("#flight-numbers-#{@bend.id}") do
