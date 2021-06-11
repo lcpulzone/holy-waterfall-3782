@@ -48,4 +48,10 @@ RSpec.describe 'flight index page' do
       end
     end
   end
+
+  describe 'delete passenger' do
+    it 'can delete a passenger from a flight' do
+      expect(page).to have_button("Remove Passenger")
+    end
+  end
 end
