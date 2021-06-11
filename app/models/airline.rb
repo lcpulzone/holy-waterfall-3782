@@ -5,4 +5,8 @@ class Airline < ApplicationRecord
   def adult_passengers
     passengers.where('age >= 18').distinct
   end
+
+  def sorted_passengers
+    passengers.where('age >= 18').group('flight.id').sum
+  end
 end

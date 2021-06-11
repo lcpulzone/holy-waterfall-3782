@@ -14,7 +14,6 @@ RSpec.describe 'airline show page' do
     @matt = @redmond.passengers.create!(name: 'Matt Rock', age: 12)
 
     @bend.passengers << @nick
-    @bend.passengers << @annie
     @bend.passengers << @matt
   end
 
@@ -22,8 +21,9 @@ RSpec.describe 'airline show page' do
     visit "/airlines/#{@dalia.id}"
 
     expect(page).to have_content(@nick.name, count: 1)
-    expect(page).to have_content(@annie.name, count: 1)
+    expect(page).to have_content(@annie.name)
 
     expect(page).to_not have_content(@matt.name)
   end
+
 end
