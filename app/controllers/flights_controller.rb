@@ -3,27 +3,10 @@ class FlightsController < ApplicationController
     @flights = Flight.all
   end
 
-  def show
-
-  end
-
-  def new
-
-  end
-
-  def create
-
-  end
-
-  def edit
-
-  end
-
-  def update
-
-  end
-
   def destroy
-
+    flight = Flight.find(params[:flight_id])
+    passenger = Passenger.find(params[:passenger_id])
+    flight.passengers.destroy(passenger)
+    redirect_to "/flights"
   end
 end
